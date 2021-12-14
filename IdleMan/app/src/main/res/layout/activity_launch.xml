@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".LaunchActivity"
+             android:gravity="center"
+             android:background="#C9BA8E"
+>
+    <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/giv_launch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:src="@drawable/launch_flash"/>
+
+</FrameLayout>

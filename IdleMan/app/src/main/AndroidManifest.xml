@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.example.idleman">
+
+    <application
+            android:allowBackup="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/Theme.Victory">
+        <activity android:name=".Login">
+        </activity>
+        <activity
+                android:name=".VH"
+                android:label="@string/title_activity_vh"
+                android:theme="@style/Theme.Victory.NoActionBar">
+        </activity>
+        <activity
+                android:name=".LaunchActivity"
+                android:label="@string/app_name"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity> <!-- category page -->
+        <activity android:name=".Home">
+        </activity>
+    </application>
+
+</manifest>
