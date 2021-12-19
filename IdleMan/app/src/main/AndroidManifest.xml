@@ -9,13 +9,15 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.Victory">
-        <activity android:name=".Login">
+        <!--        <uses-library android:name="com.google.android.things"/>-->
+
+        <activity android:name=".Activity_Task_Publish">
         </activity>
-        <activity
-                android:name=".VH"
-                android:label="@string/title_activity_vh"
-                android:theme="@style/Theme.Victory.NoActionBar">
-        </activity>
+        <!--        <activity-->
+        <!--                android:name="@string/title_activity_vh"-->
+        <!--                android:label="@string/title_activity_vh"-->
+        <!--                android:theme="@style/Theme.Victory.NoActionBar">-->
+        <!--        </activity>-->
         <activity
                 android:name=".LaunchActivity"
                 android:label="@string/app_name"
@@ -28,6 +30,15 @@
         </activity> <!-- category page -->
         <activity android:name=".Home">
         </activity>
+        <activity android:name=".Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
+
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+<FrameLayout
+        android:id="@+id/fragment_container_my"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll" />
+
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll"
+        android:background="#dcdcdc"
+        android:orientation="vertical">
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="用户头像和id和用户名"/>
+    <RadioGroup
+            android:id="@+id/tabs_rg_my"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal">
+
+        <RadioButton
+                android:id="@+id/my_tab_send"
+                style=""
+                android:checked="true"
+                android:drawableTop="@drawable/tab_sign_selector"
+                android:text="我的发帖" />
+
+        <RadioButton
+                android:id="@+id/my_tab_receive"
+                style=""
+                android:drawableTop="@drawable/tab_sign_selector"
+                android:text="我的回帖" />
+
+    </RadioGroup>
+</LinearLayout>
+
+</RelativeLayout>

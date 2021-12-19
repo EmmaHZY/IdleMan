@@ -5,16 +5,16 @@ import android.content.Intent;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.RadioGroup;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
-
-import java.io.IOException;
-
+import com.example.idleman.Fragment_Home;
+import com.example.idleman.Fragment_Message;
+import com.example.idleman.Fragment_Myself;
+import com.example.idleman.RadioButtonImgUtil;
 public class Home extends AppCompatActivity {
-    public static final String EXTRA_Myself= "com.example.idleman.home";
+
     private RadioGroup mTabRadioGroup;
     private SparseArray<Fragment> mFragmentSparseArray;
 
@@ -37,9 +37,9 @@ public class Home extends AppCompatActivity {
 
         mTabRadioGroup = findViewById(R.id.tabs_rg);
         mFragmentSparseArray = new SparseArray<>();
-        mFragmentSparseArray.append(R.id.bt_home, Fragment_Message.newInstance("home"));
+        mFragmentSparseArray.append(R.id.bt_home, Fragment_Home.newInstance("home"));
         mFragmentSparseArray.append(R.id.bt_message, Fragment_Message.newInstance("message"));
-        mFragmentSparseArray.append(R.id.bt_myself, Fragment_Message.newInstance("myself"));
+        mFragmentSparseArray.append(R.id.bt_myself, new Fragment_Myself());
         mTabRadioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             // 具体的fragment切换逻辑可以根据应用调整，例如使用show()/hide()
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -50,9 +50,9 @@ public class Home extends AppCompatActivity {
                 mFragmentSparseArray.get(R.id.bt_home)).commit();
 
     }
-
-    public void sendMessageMyself(View view) throws IOException {
-        Intent intent = new Intent(Home.this, Login.class);
+    //用户点击publish按钮之后的响应
+    public void taskPublish(View view) {
+        Intent intent = new Intent(Home.this, Activity_Task_Publish.class);
         startActivity(intent);
     }
 }
