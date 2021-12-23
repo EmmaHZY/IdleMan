@@ -11,12 +11,11 @@ import androidx.fragment.app.Fragment;
 public class Fragment_SignupTab extends Fragment {
     EditText account,username,password,confirm;
     Button signup;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_signup, container, false);
-        account = root.findViewById(R.id.account);
+        account = root.findViewById(R.id.accountnum);
         username = root.findViewById(R.id.username);
         password = root.findViewById(R.id.pass);
         confirm = root.findViewById(R.id.confirm);
@@ -38,5 +37,4 @@ public class Fragment_SignupTab extends Fragment {
 
         return root;
     }
-
 }
