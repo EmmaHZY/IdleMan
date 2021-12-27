@@ -4,40 +4,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-<FrameLayout
-        android:id="@+id/fragment_container_my"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/ll" />
+    <FrameLayout
+            android:id="@+id/fragment_container_my"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ll"/>
 
 <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ll"
-        android:background="#dcdcdc"
+        android:background="@color/idle1"
         android:orientation="vertical">
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="用户头像和id和用户名"/>
+
     <RadioGroup
             android:id="@+id/tabs_rg_my"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:orientation="horizontal">
+        <RadioButton
+                android:id="@+id/my_info"
+                style=""
+                android:checked="true"
+                android:drawableTop="@drawable/tab_sign_selector"
+                android:text="我的资料          "/>
 
         <RadioButton
                 android:id="@+id/my_tab_send"
                 style=""
-                android:checked="true"
                 android:drawableTop="@drawable/tab_sign_selector"
-                android:text="我的发帖" />
-
+                android:text="帮助我的          "/>
         <RadioButton
                 android:id="@+id/my_tab_receive"
                 style=""
                 android:drawableTop="@drawable/tab_sign_selector"
-                android:text="我的回帖" />
+                android:text="我的帮助"/>
 
     </RadioGroup>
 </LinearLayout>

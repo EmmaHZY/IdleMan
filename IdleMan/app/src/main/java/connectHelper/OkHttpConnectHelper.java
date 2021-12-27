@@ -53,6 +53,22 @@ public class OkHttpConnectHelper {
         }
         return result;
     }
+    //发送put请求
+    public static String putTargetData(String  url ,String content )
+    {
+        String result=null;
+        RequestBody body=RequestBody.create(JSON,content);
+        Request request=new Request.Builder().url(url).put(body).build();
+        Response res=null;
+        try {
+            res = client.newCall(request).execute();
+            result=res.body().string();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
     //发送get请求
     public static String getTargetData(String url)
     {

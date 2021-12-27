@@ -8,10 +8,9 @@
         tools:context=".Fragment_Myself_Help">
 
     <TextView
-            android:text="这是我的请求"
+            android:text="这是我的帮助"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/textView"/>
+            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/textView1"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
-

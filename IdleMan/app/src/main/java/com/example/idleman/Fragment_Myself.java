@@ -1,6 +1,7 @@
 package com.example.idleman;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,15 +11,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-//import com.example.myteamapplication.Activity.MainActivity;
-//import com.example.myteamapplication.Activity.SendActivity;
-//import com.example.myteamapplication.R;
-
 public class Fragment_Myself extends Fragment implements View.OnClickListener {
 
     private FragmentTransaction transaction;
     private FragmentManager manager;
-    private RadioButton my_tab_send,my_tab_receive;
+    private RadioButton my_info,my_tab_send,my_tab_receive;
     private Context MainActivity;
     private LayoutInflater inflater;
 
@@ -34,7 +31,7 @@ public class Fragment_Myself extends Fragment implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         manager = getChildFragmentManager();
         transaction = manager.beginTransaction();
-        transaction.add(R.id.fragment_container_my,new com.example.idleman.Fragment_Myself_Send());
+        transaction.add(R.id.fragment_container_my,new com.example.idleman.Fragment_Myself_Info());
         transaction.commit();
     }
 
@@ -43,8 +40,10 @@ public class Fragment_Myself extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_myself, container, false);
+        my_info =rootView.findViewById(R.id.my_info);
         my_tab_send = rootView.findViewById(R.id.my_tab_send);
         my_tab_receive = rootView.findViewById(R.id.my_tab_receive);
+        my_info.setOnClickListener(this);
         my_tab_send.setOnClickListener(this);
         my_tab_receive.setOnClickListener(this);
         return rootView;
@@ -55,13 +54,19 @@ public class Fragment_Myself extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         transaction = manager.beginTransaction();
         switch (v.getId()){
+            case R.id.my_info:
+                transaction.replace(R.id.fragment_container_my,new com.example.idleman.Fragment_Myself_Info());
+                break;
             case R.id.my_tab_send:
                 transaction.replace(R.id.fragment_container_my,new com.example.idleman.Fragment_Myself_Send());
                 break;
             case R.id.my_tab_receive:
-                transaction.replace(R.id.fragment_container_my,new Fragment_Message());
+                transaction.replace(R.id.fragment_container_my,new com.example.idleman.Fragment_Myself_Help());
                 break;
         }
         transaction.commit();
     }
+
+
+
 }

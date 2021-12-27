@@ -93,6 +93,7 @@ public class Login extends AppCompatActivity {
                 String judge = temp.getJSONObject("meta").getString("status");//获取状态码
                 if(judge.equals("2011"))
                 {
+                    Data.setId(Account);
                     startActivity(intent);
                 }
                 else
@@ -111,6 +112,11 @@ public class Login extends AppCompatActivity {
             }
         }).start();
     }
+
+//    public void judgeLogin(View view) {
+//        Intent intent = new Intent(Login.this, Home.class);
+//        startActivity(intent);
+//    }
 
     //注册逻辑
     public void judgeSignup(View view){
