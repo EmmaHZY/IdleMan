@@ -1,13 +1,9 @@
 package com.example.idleman;
 
 import android.content.Intent;
-import android.os.Handler;
-import android.os.Message;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.alibaba.fastjson.JSON;
@@ -85,5 +81,11 @@ public class Activity_Modify_Info extends AppCompatActivity {
             }
         }).start();
 
+    }
+
+    //点击修改密码后的响应
+    public void modify_password(View view) {
+        Intent intent = new Intent(Activity_Modify_Info.this, Activity_Modify_Password.class);
+        startActivity(intent);
     }
 }

@@ -12,6 +12,8 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Victory"
             android:usesCleartextTraffic="true">
+        <activity android:name=".Activity_Modify_Password">
+        </activity>
         <activity android:name=".Activity_Modify_Info">
         </activity>
         <activity android:name=".Fragment_Myself_Help">
