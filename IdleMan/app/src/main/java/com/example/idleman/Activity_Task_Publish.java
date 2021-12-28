@@ -1,78 +1,33 @@
 package com.example.idleman;
 
+import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import connectHelper.OkHttpConnectHelper;
 
-//import com.example.myteamapplication.R;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
-
-//public class Activity_Task_Publish extends AppCompatActivity implements SensorEventListener {
-//
-//
-//    private SensorManager sensorManager;
-//    private Sensor defaultSensor;
-//    private CardView cv;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        //去掉顶部标题
-//        getSupportActionBar().hide();
-//        //去掉最上面时间、电量等
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN
-//                , WindowManager.LayoutParams.FLAG_FULLSCREEN);
-//        setContentView(R.layout.activity_task_publish);
-//        initView();
-//        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);//获得传感器管理
-//        defaultSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION);//设置类型
-//    }
-//
-//
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        sensorManager.registerListener(this, defaultSensor, SensorManager.SENSOR_DELAY_GAME);//注册传感器
-//    }
-//
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//        sensorManager.unregisterListener(this);//注销传感器
-//    }
-//
-//    @Override
-//    public void onSensorChanged(SensorEvent event) {
-//        changeLocation(event.values[1], event.values[2]);
-//    }
-//
-//    @Override
-//    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-//
-//    }
-//
-//
-//    private void changeLocation(float y, float z) {
-//        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) cv.getLayoutParams();
-//        layoutParams.setMargins((int) z * 5, (int) y * 5, 0, 0);//乘2的作用是为了让效果明显点
-//        cv.setLayoutParams(layoutParams);
-//
-//    }
-//
-//
-//
-//    private void initView() {
-//        cv = (CardView) findViewById(R.id.cv);
-//    }
-//
-//}
 
 public class Activity_Task_Publish extends AppCompatActivity {
-//
-//    private SensorManager sensorManager;
-//    private Sensor defaultSensor;
+
+    private EditText deadline,publish_title,publish_deadline,publish_content;
     private CardView cv;
+    private String tag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,42 +38,123 @@ public class Activity_Task_Publish extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN
                 , WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_task_publish);
-//        initView();
+
+        //日期选择
+        deadline = (EditText) findViewById(R.id.publish_deadline);
+        deadline.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    showDatePickDlg();
+                    return true;
+                }
+                return false;
+            }
+        });
+        deadline.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    showDatePickDlg();
+                }
+            }
+        });
     }
-//
-//    private void initView() {
-//        rvImages.setLayoutManager(new GridLayoutManager(this, 3));
-//        adapter = new NineGridAdapter(MainActivity.this, mSelectList, rvImages);
-//        adapter.setMaxSize(maxNum);
-//        rvImages.setAdapter(adapter);
-//        adapter.setOnAddPicturesListener(new OnAddPicturesListener() {
-//            @Override
-//            public void onAdd() {
-//                pickImage();  Q
-//            }
-//        });
-//    }
-//
-//    private void pickImage() {
-//        MultiImageSelector selector = MultiImageSelector.create(context);
-//        selector.showCamera(true);
-//        selector.count(maxNum);
-//        selector.multi();
-//        selector.origin(mSelectList);
-//        selector.start(instans, REQUEST_IMAGE);
-//    }
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == REQUEST_IMAGE) {
-//            if (resultCode == RESULT_OK) {
-//                List<String> select = data.getStringArrayListExtra(MultiImageSelector.EXTRA_RESULT);
-//                mSelectList.clear();
-//                mSelectList.addAll(select);
-//                adapter.notifyDataSetChanged();
-//            }
-//        }
-//    }
+
+    //日期选择函数
+    protected void showDatePickDlg() {
+        Calendar calendar = Calendar.getInstance();
+        DatePickerDialog datePickerDialog = new DatePickerDialog(Activity_Task_Publish.this, new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Activity_Task_Publish.this.deadline.setText(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
+            }
+        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
+    }
+
+    //弹窗处理
+    Handler handler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(@NonNull Message msg) {
+            new AlertDialog.Builder(
+                    Activity_Task_Publish.this)
+                    .setMessage(msg.getData().getString("key"))
+                    .setPositiveButton("确定", null)
+                    .show();
+            return false;
+        }
+    });
+
+    //任务类型选定
+    public void tag1(View view){tag="1";}
+    public void tag2(View view){tag="2";}
+    public void tag3(View view){tag="3";}
+    public void tag4(View view){tag="4";}
+
+    //退出逻辑,退回首页
+    public void cancel(View view){
+        Intent intent = new Intent(Activity_Task_Publish.this, Home.class);
+        startActivity(intent);
+    }
+
+    //发布逻辑
+    public void publish_task(View view){
+        //获取任务标题、截止日期、内容
+        publish_title = (EditText) findViewById(R.id.publish_title);
+        publish_deadline = (EditText) findViewById(R.id.publish_deadline);
+        publish_content = (EditText) findViewById(R.id.publish_content);
+        String Publish_title=publish_title.getText().toString();
+        String Publish_deadline=publish_deadline.getText().toString();
+        String Publish_content=publish_content.getText().toString();
+        String id=Data.getId().toString();
+
+        String url="http://192.168.43.134:8080/task?operation=add";
+        Map<String, Object> content=new HashMap<String,Object>();
+        content.put('"'+"publisherID"+'"','"'+id+'"');
+        content.put('"'+"tag"+'"','"'+tag+'"');
+        content.put('"'+"taskTitle"+'"','"'+Publish_title+'"');
+        content.put('"'+"deadline"+'"','"'+Publish_deadline+'"');
+        content.put('"'+"taskContent"+'"','"'+Publish_content+'"');
+        String a="{"+OkHttpConnectHelper.getMapToString(content)+"}";//发送过去的数据
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String result = OkHttpConnectHelper.postTargetData(url,a);
+                JSONObject temp= JSON.parseObject(result);//结果转化为json对象
+                String judge = temp.getJSONObject("meta").getString("status");//获取状态码
+                if(judge.equals("2001"))
+                {
+                    //创建Message
+                    Message msg = Message.obtain();
+                    msg.what = 0;
+                    //创建Bundle
+                    Bundle bundle = new Bundle();
+                    bundle.putString("key","发布成功，可以退出");
+                    //为Message设置Bundle数据
+                    msg.setData(bundle);
+                    //发送消息
+                    handler.sendMessage(msg);
+                }
+                else
+                {
+                    //创建Message
+                    Message msg = Message.obtain();
+                    msg.what = 0;
+                    //创建Bundle
+                    Bundle bundle = new Bundle();
+                    bundle.putString("key","发布失败，请检查闲币数");
+                    //为Message设置Bundle数据
+                    msg.setData(bundle);
+                    //发送消息
+                    handler.sendMessage(msg);
+                }
+            }
+        }).start();
+    }
 
 
 }

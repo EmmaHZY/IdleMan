@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -22,6 +23,11 @@ public class Activity_Modify_Info extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //去掉顶部标题
+        getSupportActionBar().hide();
+        //去掉最上面时间、电量等
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN
+                , WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_modify_info);
 
         //框定位
