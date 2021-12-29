@@ -88,7 +88,7 @@ public class Activity_Task extends AppCompatActivity {
         String ID = Data.getId();
         String url="http://1.117.239.54:8080/task?operation=accept";
         Map<String, Object> content=new HashMap<String,Object>();
-        content.put('"'+"publisherID"+'"','"'+ID+'"');
+        content.put('"'+"receiverID"+'"','"'+ID+'"');
         content.put('"'+"taskID"+'"','"'+message+'"');
         String a="{"+ OkHttpConnectHelper.getMapToString(content)+"}";//发送过去的数据
 

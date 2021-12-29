@@ -114,7 +114,7 @@ public class Activity_MySend extends AppCompatActivity {
                     msg.what = 0;
                     //创建Bundle
                     Bundle bundle = new Bundle();
-                    bundle.putString("key","任务已完成，无法撤销");
+                    bundle.putString("key","该任务已无法撤销");
                     //为Message设置Bundle数据
                     msg.setData(bundle);
                     //发送消息
