@@ -3,68 +3,69 @@
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="225dp"
         android:orientation="vertical"
         android:background="@drawable/taskitem_bg">
     <!--图片或视频区域，这个地方我还没改好，我的item背景是设置成圆角的，但是这里图片显示的时候盖住了那个圆角，所以显示出来的是直角，后面有时间再改改-->
     <ImageView
             android:id="@+id/home_item_img"
             android:layout_width="200dp"
-            android:layout_height="200dp" />
+            android:layout_height="60dp"/>
     <!--标题区域,最大行数为2-->
     <TextView
             android:id="@+id/home_item_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_width="175dp"
+            android:layout_height="86dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="10dp"
             android:maxLines="2"
             android:text="标题"
             android:textColor="#333"/>
+    <ImageView
+            android:id="@+id/home_item_padding"
+            android:layout_width="match_parent"
+            android:layout_height="12dp"/>
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
+        <ImageView
+                android:id="@+id/home_item_icon"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"/>
         <!--头像图片，这个CricleImageView是另写的一个类继承自ImageView，用来实现圆形的图片效果和缩放效果的-->
-<!--        <com.example.dumb.CircleImageView-->
-<!--                android:id="@+id/home_item_head"-->
-<!--                android:layout_width="30dp"-->
-<!--                android:layout_height="30dp"-->
-<!--                android:layout_margin="8dp"-->
-<!--                android:src="@drawable/user"-->
-<!--                android:scaleType="centerCrop"-->
-<!--                android:layout_gravity="center"/>-->
+        <!--        <com.example.dumb.CircleImageView-->
+        <!--                android:id="@+id/home_item_head"-->
+        <!--                android:layout_width="30dp"-->
+        <!--                android:layout_height="30dp"-->
+        <!--                android:layout_margin="8dp"-->
+        <!--                android:src="@drawable/user"-->
+        <!--                android:scaleType="centerCrop"-->
+        <!--                android:layout_gravity="center"/>-->
         <!--昵称区域-->
-        <TextView
-                android:id="@+id/home_item_username"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="阿呆"
-                android:textSize="12sp"
-                android:textColor="#333333"/>
         <!--点赞区域-->
-        <LinearLayout
-                android:id="@+id/home_item_good"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:orientation="vertical"
-                android:layout_gravity="top"
-                android:gravity="right">
-            <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/homedemo_home"/>
-            <TextView
-                    android:layout_width="25dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="123"
-                    android:textSize="10dp"
-                    android:textColor="#333"/>
-        </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="66dp"
+                    android:orientation="vertical"
+                    android:layout_gravity="right">
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="29dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="right"/>
+                <TextView
+                        android:id="@+id/home_item_username"
+                        android:layout_width="104dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="right"
+                        android:gravity="center"
+                        android:text="昵称"
+                        android:textSize="12sp"
+                        android:textColor="#333333"/>
+            </LinearLayout>
     </LinearLayout>
 </LinearLayout>
 
