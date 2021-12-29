@@ -187,17 +187,14 @@ public class Fragment_Home extends Fragment {
 
     private void initData() {
      //this.list=TaskFactory.createItem();
-        String url="http://1.117.239.54:8080/task?operation=getAll&index=sb";
+        String url="http://1.117.239.54:8080/task?operation=getAll&index=";
         new Thread(new Runnable() {
             @Override
             public void run() {
                 String result = OkHttpConnectHelper.getTargetData(url);
-                System.out.println("caonima");
-                System.out.println(result);
                 JSONObject temp= JSON.parseObject(result);//结果转化为json对象
                 JSONArray array=temp.getJSONArray("data");
                 taskCount=array.size();
-                System.out.println("万惟佳"+taskCount);
                 for (int i = 0; i < taskCount; i++) {
 //            if(cursor.moveToFirst ()) {
 //                cursor.move(i);
@@ -212,10 +209,10 @@ public class Fragment_Home extends Fragment {
                 }
                 String data = temp.getJSONArray("data").getString(0);//数组第一个元素的字符串值
                 JSONObject show=JSON.parseObject(data);//转化为json对象
+                list=new ArrayList<>();
                 for (int i=0;i < taskCount;i++){
                     String text = taskText[i];
                     Long id=taskID[i];
-                    System.out.println(text);
                     list.add(new TaskItem(text,id));
                 }
                 Message msg = Message.obtain();

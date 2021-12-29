@@ -19,18 +19,6 @@ class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
     private List<TaskItem> list;
 
     private int space = 5;
-    //要展示的对应item的数据，imgs是上方的图片/视图
-    //titles是标题，headsIcon是头像，username是用户名
-//    private int[] imgs;
-//    private String[] titles;
-//    private int[] headsIcon;
-//    private String[] usernames;
-
-    private int[] imgs = {R.drawable.homedemo_myself, R.drawable.homedemo_message, R.drawable.homedemo_home};
-    private String[] titles = {"电影\n看书的女人", "阿呆的沙雕绘画", "帅猫"};
-    private int[] headsIcon = {R.drawable.homedemo_taskpublish, R.drawable.homedemo_taskranking, R.drawable.homedemo_taskreceive};
-    private String[] usernames = {"阿呆", "Wacke", "肉团", "加密", "ajia"};
-
 
     public HomeAdapter(Context context, List<TaskItem> list) {
         this.context = context;
@@ -67,15 +55,10 @@ class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
 //
 //        //给我的四个控件获取一下数据，注意不同类型调用不同的方法，设置图片用setImageResource（），设置文字用setText（）
 //        //holder.img.setImageResource(imgs[position]);
-//        holder.title.setText(titles[position]);
-//        //holder.head.setImageResource(headsIcon[position]);
-//        holder.username.setText(usernames[position]);
         TaskItem item = list.get(position);
 //        Glide.with (context).load (item.getImgUrl ()).into (holder.ivBookImage);
         holder.title.setText(item.getText());
 //        holder.tvBookAuthor.setText (item.getBookAuthor ());
-//        holder.tvBookPrice.setText (item.getBookPrice ());
-//        holder.tvBookPages.setText (item.getBookPages ());
     }
 
     @Override
