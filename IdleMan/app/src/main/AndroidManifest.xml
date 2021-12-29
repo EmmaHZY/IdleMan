@@ -12,6 +12,10 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Victory"
             android:usesCleartextTraffic="true">
+        <activity android:name=".Activity_MyReceive">
+        </activity>
+        <activity android:name=".Activity_MySend">
+        </activity>
 
         <uses-library
                 android:name="com.google.android.things"
@@ -23,7 +27,7 @@
         </activity>
         <activity android:name=".Activity_Modify_Info">
         </activity>
-        <activity android:name=".Fragment_Myself_Help">
+        <activity android:name=".Fragment_Myself_Receive">
         </activity>
         <activity android:name=".Fragment_Myself_Info">
         </activity> <!-- <uses-library android:name="com.google.android.things"/> -->

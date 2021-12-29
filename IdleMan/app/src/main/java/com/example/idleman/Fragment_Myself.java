@@ -1,7 +1,6 @@
 package com.example.idleman;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,7 +60,7 @@ public class Fragment_Myself extends Fragment implements View.OnClickListener {
                 transaction.replace(R.id.fragment_container_my,new com.example.idleman.Fragment_Myself_Send());
                 break;
             case R.id.my_tab_receive:
-                transaction.replace(R.id.fragment_container_my,new com.example.idleman.Fragment_Myself_Help());
+                transaction.replace(R.id.fragment_container_my,new Fragment_Myself_Receive());
                 break;
         }
         transaction.commit();

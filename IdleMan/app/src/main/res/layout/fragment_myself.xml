@@ -33,12 +33,12 @@
                 android:id="@+id/my_tab_send"
                 style=""
                 android:drawableTop="@drawable/tab_sign_selector"
-                android:text="帮助我的          "/>
+                android:text="我发布的          "/>
         <RadioButton
                 android:id="@+id/my_tab_receive"
                 style=""
                 android:drawableTop="@drawable/tab_sign_selector"
-                android:text="我的帮助"/>
+                android:text="我接收的"/>
 
     </RadioGroup>
 </LinearLayout>
