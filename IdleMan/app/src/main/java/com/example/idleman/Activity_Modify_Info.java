@@ -55,7 +55,7 @@ public class Activity_Modify_Info extends AppCompatActivity {
         String Tel=tel.getText().toString();
         String id=Data.getId().toString();
 
-        String url="http://192.168.43.134:8080/user?operation=changeMe";
+        String url="http://1.117.239.54:8080/user?operation=changeMe";
         Map<String, Object> content=new HashMap<String,Object>();
         content.put('"'+"userID"+'"','"'+id+'"');
         content.put('"'+"name"+'"','"'+Name+'"');

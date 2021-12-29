@@ -12,8 +12,10 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Victory"
             android:usesCleartextTraffic="true">
-        <uses-library android:name="com.google.android.things"
-                      android:required="false"/>
+
+        <uses-library
+                android:name="com.google.android.things"
+                android:required="false"/>
 
         <activity android:name=".Activity_Task">
         </activity>

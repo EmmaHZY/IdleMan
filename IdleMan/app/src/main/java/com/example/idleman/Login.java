@@ -79,7 +79,7 @@ public class Login extends AppCompatActivity {
         String Account=account.getText().toString();
         String Password=password.getText().toString();
 
-        String url="http://192.168.43.134:8080/user?operation=login";
+        String url="http://1.117.239.54:8080/user?operation=login";
         Map<String, Object> content=new HashMap<String,Object>();
         content.put('"'+"userID"+'"','"'+Account+'"');
         content.put('"'+"password"+'"','"'+Password+'"');
@@ -147,7 +147,7 @@ public class Login extends AppCompatActivity {
             return;//不一致，不发送请求
         }
 
-        String url="http://192.168.43.134:8080/user?operation=register";
+        String url="http://1.117.239.54:8080/user?operation=register";
         Map<String, Object> content=new HashMap<String,Object>();
         content.put('"'+"userID"+'"','"'+Account_num+'"');
         content.put('"'+"name"+'"','"'+Username+'"');

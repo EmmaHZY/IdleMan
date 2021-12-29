@@ -76,7 +76,7 @@ public class Activity_Modify_Password extends AppCompatActivity {
             return;//不一致，不发送请求
         }
 
-        String url="http://192.168.43.134:8080/user?operation=changePassword";
+        String url="http://1.117.239.54:8080/user?operation=changePassword";
         Map<String, Object> content=new HashMap<String,Object>();
         content.put('"'+"userID"+'"','"'+id+'"');
         content.put('"'+"passwordOld"+'"','"'+Old_pass+'"');

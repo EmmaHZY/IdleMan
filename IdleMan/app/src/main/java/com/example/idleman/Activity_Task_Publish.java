@@ -111,7 +111,7 @@ public class Activity_Task_Publish extends AppCompatActivity {
         String Publish_content=publish_content.getText().toString();
         String id=Data.getId().toString();
 
-        String url="http://192.168.43.134:8080/task?operation=add";
+        String url="http://1.117.239.54:8080/task?operation=add";
         Map<String, Object> content=new HashMap<String,Object>();
         content.put('"'+"publisherID"+'"','"'+id+'"');
         content.put('"'+"tag"+'"','"'+tag+'"');

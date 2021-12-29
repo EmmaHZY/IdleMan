@@ -53,7 +53,7 @@ public class Fragment_Myself_Info extends Fragment {
         wechat = (ItemGroup) view.findViewById(R.id.ig_wechat);
         tel_num = (ItemGroup) view.findViewById(R.id.ig_tel_num);
 
-        String url="http://192.168.43.134:8080/user?operation=getMe&index="+Data.getId();
+        String url="http://1.117.239.54:8080/user?operation=getMe&index="+Data.getId();
 
         new Thread(new Runnable() {
             @Override
