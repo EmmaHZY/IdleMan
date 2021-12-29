@@ -12,6 +12,11 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Victory"
             android:usesCleartextTraffic="true">
+        <uses-library android:name="com.google.android.things"
+                      android:required="false"/>
+
+        <activity android:name=".Activity_Task">
+        </activity>
         <activity android:name=".Activity_Modify_Password">
         </activity>
         <activity android:name=".Activity_Modify_Info">
