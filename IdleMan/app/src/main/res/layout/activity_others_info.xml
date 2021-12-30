@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context=".Activity_Others_Info"
+              android:orientation="vertical"
+              android:background="@color/idle1">
+
+    <!--    头像-->
+    <LinearLayout
+            android:id="@+id/ll_portrait"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="30dp"
+            android:paddingBottom="10dp"
+            android:background="@color/white">
+
+        <com.example.idleman.RoundImageView
+                android:id="@+id/ri_portrait"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                android:layout_marginLeft="@dimen/padding_left_and_right"
+                android:scaleType="centerCrop"
+                android:src="@drawable/default_header"/>
+
+
+    </LinearLayout>
+    <!--    编辑界面，此处可以写成一个ItemGroup上传至com上-->
+    <com.example.idleman.ItemGroup
+            android:id="@+id/ig_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:paddingLeft="@dimen/padding_left_and_right"
+            app:title="帐号" />
+
+    <com.example.idleman.ItemGroup
+            android:id="@+id/ig_level"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            app:paddingLeft="@dimen/padding_left_and_right"
+            app:title="等级" />
+
+    <com.example.idleman.ItemGroup
+            android:id="@+id/ig_coin"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            app:paddingLeft="@dimen/padding_left_and_right"
+            app:title="闲币值" />
+
+    <com.example.idleman.ItemGroup
+            android:id="@+id/ig_creditScore"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            app:paddingLeft="@dimen/padding_left_and_right"
+            app:title="信誉分" />
+
+
+    <com.example.idleman.ItemGroup
+            android:id="@+id/ig_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:paddingLeft="@dimen/padding_left_and_right"
+            app:title="昵称" />
+
+    <com.example.idleman.ItemGroup
+            android:id="@+id/ig_per_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:edt_hint_content="待填写"
+            app:paddingLeft="@dimen/padding_left_and_right"
+            app:title="个性签名"/>
+
+    <com.example.idleman.ItemGroup
+            android:id="@+id/ig_region"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            app:edt_hint_content="待选择"
+            app:paddingLeft="@dimen/padding_left_and_right"
+            app:title="校区" />
+
+    <com.example.idleman.ItemGroup
+            android:id="@+id/ig_qq"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            app:edt_hint_content="待填写"
+            app:paddingLeft="@dimen/padding_left_and_right"
+            app:title="QQ号" />
+
+    <com.example.idleman.ItemGroup
+            android:id="@+id/ig_wechat"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            app:edt_hint_content="待填写"
+            app:paddingLeft="@dimen/padding_left_and_right"
+            app:title="微信号" />
+
+    <com.example.idleman.ItemGroup
+            android:id="@+id/ig_tel_num"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            app:edt_hint_content="待填写"
+            app:paddingLeft="@dimen/padding_left_and_right"
+            app:title="电话号" />
+
+</LinearLayout>
+
+

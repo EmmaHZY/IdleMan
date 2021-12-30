@@ -21,7 +21,7 @@ import java.util.Map;
 public class Activity_Mying extends AppCompatActivity {
     String message;//页面传参，记录任务ID
     TextView receiver,title,content,begin_time,end_time;
-    JSONObject show;
+    String message1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +53,8 @@ public class Activity_Mying extends AppCompatActivity {
                 String result = OkHttpConnectHelper.getTargetData(url);
                 JSONObject temp= JSON.parseObject(result);//结果转化为json对象
                 String data = temp.getJSONArray("data").getString(0);//数组第一个元素的字符串值
-                show=JSON.parseObject(data);//转化为json对象
-
+                JSONObject show=JSON.parseObject(data);//转化为json对象
+                message1=show.getString("receiverID");
                 receiver.setText("~~"+show.getString("receiverName")+"正在努力~~");
                 title.setText("  标题:"+show.getString("taskTitle"));
                 content.setText("  详情："+show.getString("taskContent"));
@@ -81,7 +81,7 @@ public class Activity_Mying extends AppCompatActivity {
     //完成逻辑
     public void accomplish(View view){
         String PID = Data.getId();
-        String RID=show.getString("receiverID");
+        String RID=message1;
 
         String url="http://1.117.239.54:8080/task?operation=finish";
         Map<String, Object> content=new HashMap<String,Object>();
@@ -124,6 +124,12 @@ public class Activity_Mying extends AppCompatActivity {
                 }
             }
         }).start();
+    }
+    //联系逻辑
+    public void Others(View view) {
+        Intent intent = new Intent(Activity_Mying.this,Activity_Others_Info.class);
+        intent.putExtra("receiverID",message1);
+        startActivity(intent);
     }
 
 }

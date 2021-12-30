@@ -198,7 +198,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:cardBackgroundColor="@color/idle"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true" android:onClick="Others">
 
         <TextView
                 android:id="@+id/info_text_exit"
