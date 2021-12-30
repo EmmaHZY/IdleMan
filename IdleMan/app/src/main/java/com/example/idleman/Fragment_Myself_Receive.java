@@ -33,6 +33,7 @@ public class Fragment_Myself_Receive extends Fragment {
     public static String[] usernames=new String[1000];
     public static String[] taskText = new String[1000];
     public static Long[] taskID = new Long[1000];
+    public static String[] taskTag=new String[1000];
     public static int taskCount;
     RecyclerView recyclerView;
 
@@ -90,6 +91,7 @@ public class Fragment_Myself_Receive extends Fragment {
                     taskText[i] = JSON.parseObject(array.getString(i)).getString("taskTitle");
                     taskID[i]= JSON.parseObject(array.getString(i)).getLong("taskID");
                     usernames[i]= JSON.parseObject(array.getString(i)).getString("username");
+                    taskTag[i]= JSON.parseObject(array.getString(i)).getString("tag");
                 }
                 String data = temp.getJSONArray("data").getString(0);//数组第一个元素的字符串值
                 JSONObject show=JSON.parseObject(data);//转化为json对象
@@ -98,7 +100,8 @@ public class Fragment_Myself_Receive extends Fragment {
                     Long id=taskID[i];
                     System.out.println(text);
                     String username=usernames[i];
-                    list.add(new TaskItem(text,id,username));
+                    String tag=taskTag[i];
+                    list.add(new TaskItem(text,id,username,tag));
                 }
                 Message msg = Message.obtain();
                 handler.sendMessage(msg);

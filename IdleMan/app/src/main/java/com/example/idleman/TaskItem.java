@@ -4,10 +4,12 @@ public class TaskItem {
     private String text;
     private Long taskID;
     private String username;
-    public TaskItem(String text,Long taskID,String username) {
+    private String tag;
+    public TaskItem(String text,Long taskID,String username,String tag) {
         this.text = text;
         this.taskID=taskID;
         this.username=username;
+        this.tag=tag;
     }
 
     public void setUsername(String username) {
@@ -32,5 +34,13 @@ public class TaskItem {
 
     public String getText() {
         return text;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public String getTag() {
+        return tag;
     }
 }

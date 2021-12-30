@@ -10,12 +10,16 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/ll"/>
 
+
+
 <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ll"
         android:background="@color/idle1"
         android:orientation="vertical">
+
+
 
     <RadioGroup
             android:id="@+id/tabs_rg_my"
@@ -44,3 +48,4 @@
 </LinearLayout>
 
 </RelativeLayout>
+

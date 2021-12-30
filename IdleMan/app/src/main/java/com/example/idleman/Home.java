@@ -52,5 +52,10 @@ public class Home extends AppCompatActivity {
         Intent intent = new Intent(Home.this, Activity_Task_Publish.class);
         startActivity(intent);
     }
+
+    public void taskCheck(View view){
+        Intent intent = new Intent(Home.this, Activity_Task_Check.class);
+        startActivity(intent);
+    }
 }
 

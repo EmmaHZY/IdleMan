@@ -12,6 +12,8 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Victory"
             android:usesCleartextTraffic="true">
+        <activity android:name=".Activity_Task_Check">
+        </activity>
         <activity android:name=".Activity_MyReceive">
         </activity>
         <activity android:name=".Activity_MySend">

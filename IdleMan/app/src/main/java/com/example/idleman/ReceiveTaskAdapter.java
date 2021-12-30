@@ -59,13 +59,14 @@ class ReceiveTaskAdapter extends RecyclerView.Adapter<ReceiveTaskAdapter.MyViewH
 //        Glide.with (context).load (item.getImgUrl ()).into (holder.ivBookImage);
         holder.title.setText(item.getText());
         holder.username .setText(item.getUsername());
+
 //        holder.tvBookAuthor.setText (item.getBookAuthor ());
     }
 
     @Override
     public int getItemCount() {
         //获取列表条目总数
-        return list.size();
+       return list.size();
     }
 //
 //    @Override
@@ -79,7 +80,7 @@ class ReceiveTaskAdapter extends RecyclerView.Adapter<ReceiveTaskAdapter.MyViewH
     class MyViewHolder extends RecyclerView.ViewHolder {
         //初始化控件
         ImageView img, head;
-        TextView title, username;
+        TextView title, username,tag;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -87,6 +88,7 @@ class ReceiveTaskAdapter extends RecyclerView.Adapter<ReceiveTaskAdapter.MyViewH
             title = itemView.findViewById(R.id.home_item_title);
             // head=itemView.findViewById(R.id.home_item_head);
             username = itemView.findViewById(R.id.home_item_username);
+            tag = itemView.findViewById(R.id.home_item_tag);
         }
     }
 

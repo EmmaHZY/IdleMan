@@ -59,6 +59,7 @@ class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
 //        Glide.with (context).load (item.getImgUrl ()).into (holder.ivBookImage);
         holder.title.setText(item.getText());
         holder.username .setText(item.getUsername());
+        holder.tag .setText(item.getTag());
 //        holder.tvBookAuthor.setText (item.getBookAuthor ());
     }
 
@@ -79,7 +80,7 @@ class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
     class MyViewHolder extends RecyclerView.ViewHolder {
         //初始化控件
         ImageView img, head;
-        TextView title, username;
+        TextView title, username,tag;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -87,6 +88,7 @@ class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
             title = itemView.findViewById(R.id.home_item_title);
             // head=itemView.findViewById(R.id.home_item_head);
             username = itemView.findViewById(R.id.home_item_username);
+            tag = itemView.findViewById(R.id.home_item_tag);
         }
     }
 
