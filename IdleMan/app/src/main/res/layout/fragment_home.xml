@@ -8,19 +8,6 @@
         android:background="#00000000"
         tools:context="com.example.idleman.Home">
 
-    <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="搜索"
-            android:textColor="#AEAEAE"
-            android:ems="10"
-            android:id="@+id/editTextTextPersonName"
-            tools:ignore="MissingConstraints"
-            app:layout_constraintTop_toTopOf="@+id/guideline2"
-            android:layout_marginTop="20dp" app:layout_constraintBottom_toTopOf="@+id/guideline3"
-            app:layout_constraintVertical_bias="1.0" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.555"/>
     <ImageButton
             android:background="#00000000"
             android:src="@drawable/homedemo_taskpublish"
@@ -85,17 +72,6 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/guideline2"
             app:layout_constraintHorizontal_bias="0.498" android:layout_marginBottom="12dp"/>
-    <ImageButton
-            android:background="#00000000"
-            android:src="@drawable/homedemo_search"
-            android:scaleType="fitCenter"
-            android:layout_width="41dp"
-            android:layout_height="45dp" android:id="@+id/bt_search"
-            tools:ignore="MissingConstraints"
-            app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName"
-            app:layout_constraintTop_toTopOf="@+id/guideline2" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/guideline3" app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintVertical_bias="1.0"/>
     <TextView
             android:id="@+id/home_textmyself"
             android:layout_width="58dp"
@@ -157,6 +133,6 @@
             android:layout_width="match_parent"
             android:layout_height="470dp"
             android:layout_weight="1" tools:layout_editor_absoluteX="0dp"
-            app:layout_constraintVertical_bias="0.697" app:layout_constraintBottom_toTopOf="@+id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"/>
+            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+    />
 </androidx.constraintlayout.widget.ConstraintLayout>
