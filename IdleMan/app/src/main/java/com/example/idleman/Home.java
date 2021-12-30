@@ -35,7 +35,7 @@ public class Home extends AppCompatActivity {
         mTabRadioGroup = findViewById(R.id.tabs_rg);
         mFragmentSparseArray = new SparseArray<>();
         mFragmentSparseArray.append(R.id.bt_home, new Fragment_Home());
-        mFragmentSparseArray.append(R.id.bt_message, Fragment_Message.newInstance("message"));
+        mFragmentSparseArray.append(R.id.bt_message, Fragment_Ing.newInstance("message"));
         mFragmentSparseArray.append(R.id.bt_myself, new Fragment_Myself());
         mTabRadioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             // 具体的fragment切换逻辑可以根据应用调整，例如使用show()/hide()
