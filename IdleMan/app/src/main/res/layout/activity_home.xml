@@ -88,7 +88,7 @@
             android:layout_width="59dp"
             android:layout_height="20dp"
             android:gravity="center"
-            android:text="消息"
+            android:text="进行时"
             android:textSize="12sp"
             android:textColor="@color/textDefault" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/home_textmyself" app:layout_constraintStart_toStartOf="parent"
