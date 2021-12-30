@@ -77,7 +77,7 @@ public class Fragment_Myself_Send extends Fragment {
 
     private void initData() {
         //this.list=TaskFactory.createItem();
-        String url="http://1.117.239.54:8080/task?operation=getByPublisherID&index="+Data.getId();
+        String url="http://1.117.239.54:8080/task?operation=getByPublisherID&index="+Data.getId()+"&key=";
         new Thread(new Runnable() {
             @Override
             public void run() {

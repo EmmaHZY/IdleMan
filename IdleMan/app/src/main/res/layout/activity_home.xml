@@ -62,58 +62,38 @@
                 app:layout_constraintStart_toEndOf="@+id/bt_message" app:layout_constraintTop_toTopOf="@+id/bt_message"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.204"/>
     </RadioGroup>
-    <!--    <EditText-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:inputType="textPersonName"-->
-    <!--            android:text="搜索"-->
-    <!--            android:textColor="#AEAEAE"-->
-    <!--            android:ems="10"-->
-    <!--            android:id="@+id/editTextTextPersonName"-->
-    <!--            tools:ignore="MissingConstraints"-->
-    <!--            app:layout_constraintTop_toTopOf="@+id/guideline2"-->
-    <!--            android:layout_marginTop="20dp" app:layout_constraintBottom_toTopOf="@+id/guideline3"-->
-    <!--            app:layout_constraintVertical_bias="1.0" app:layout_constraintEnd_toEndOf="parent"-->
-    <!--            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.555"/>-->
-    <!--    <ImageButton-->
-    <!--            android:background="#00000000"-->
-    <!--            android:src="@drawable/homedemo_taskpublish"-->
-    <!--            android:scaleType="fitCenter"-->
-    <!--            android:layout_width="62dp"-->
-    <!--            android:layout_height="61dp" android:id="@+id/bt_taskPublish"-->
-    <!--            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"-->
-    <!--            app:layout_constraintBottom_toTopOf="@+id/guideline2" app:layout_constraintHorizontal_bias="0.137"-->
-    <!--            android:layout_marginBottom="12dp"/>-->
-    <!--    <ImageButton-->
-    <!--            android:background="#00000000"-->
-    <!--            android:src="@drawable/homedemo_taskranking"-->
-    <!--            android:scaleType="fitCenter"-->
-    <!--            android:layout_width="62dp"-->
-    <!--            android:layout_height="62dp" android:id="@+id/bt_taskRanking"-->
-    <!--            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"-->
-    <!--            app:layout_constraintBottom_toTopOf="@+id/guideline2"-->
-    <!--            app:layout_constraintHorizontal_bias="0.865" android:layout_marginBottom="12dp"/>-->
-    <!--    <ImageButton-->
-    <!--            android:background="#00000000"-->
-    <!--            android:src="@drawable/homedemo_taskreceive"-->
-    <!--            android:scaleType="fitCenter"-->
-    <!--            android:layout_width="62dp"-->
-    <!--            android:layout_height="62dp" android:id="@+id/bt_taskReceive"-->
-    <!--            tools:ignore="MissingConstraints"-->
-    <!--            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"-->
-    <!--            app:layout_constraintBottom_toTopOf="@+id/guideline2"-->
-    <!--            app:layout_constraintHorizontal_bias="0.498" android:layout_marginBottom="12dp"/>-->
-    <!--    <ImageButton-->
-    <!--            android:background="#00000000"-->
-    <!--            android:src="@drawable/homedemo_search"-->
-    <!--            android:scaleType="fitCenter"-->
-    <!--            android:layout_width="41dp"-->
-    <!--            android:layout_height="45dp" android:id="@+id/bt_search"-->
-    <!--            tools:ignore="MissingConstraints"-->
-    <!--            app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName"-->
-    <!--            app:layout_constraintTop_toTopOf="@+id/guideline2" app:layout_constraintStart_toStartOf="parent"-->
-    <!--            app:layout_constraintBottom_toTopOf="@+id/guideline3" app:layout_constraintHorizontal_bias="1.0"-->
-    <!--            app:layout_constraintVertical_bias="1.0"/>-->
+    <TextView
+            android:id="@+id/home_textmyself"
+            android:layout_width="58dp"
+            android:layout_height="21dp"
+            android:gravity="center"
+            android:text="我的"
+            android:textSize="12sp"
+            android:textColor="@color/textDefault" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="@+id/guideline4"
+            app:layout_constraintVertical_bias="1.0" android:layout_marginEnd="28dp"/>
+    <TextView
+            android:id="@+id/home_texthome"
+            android:layout_width="59dp"
+            android:layout_height="20dp"
+            android:gravity="center"
+            android:text="首页"
+            android:textSize="12sp"
+            android:textColor="@color/textDefault" app:layout_constraintEnd_toStartOf="@+id/home_textmessage"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/home_textmessage" app:layout_constraintHorizontal_bias="0.243"
+            app:layout_constraintVertical_bias="0.0"/>
+    <TextView
+            android:id="@+id/home_textmessage"
+            android:layout_width="59dp"
+            android:layout_height="20dp"
+            android:gravity="center"
+            android:text="消息"
+            android:textSize="12sp"
+            android:textColor="@color/textDefault" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/home_textmyself" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/home_textmyself" app:layout_constraintHorizontal_bias="0.654"
+            app:layout_constraintVertical_bias="1.0"/>
     <androidx.constraintlayout.widget.Barrier
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

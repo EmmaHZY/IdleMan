@@ -46,7 +46,7 @@ public class Activity_MySend extends AppCompatActivity {
         begin_time = findViewById(R.id.info_text_begin_time);
         end_time= findViewById(R.id.info_text_end_time);
 
-        String url="http://1.117.239.54:8080/task?operation=getByTaskID&index="+message;
+        String url="http://1.117.239.54:8080/task?operation=getByTaskID&index="+message+"&key=";
         new Thread(new Runnable() {
             @Override
             public void run() {

@@ -32,7 +32,9 @@
         <TextView
                 android:id="@+id/home_item_tag"
                 android:layout_width="70dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="#333333"/>
         <!--头像图片，这个CricleImageView是另写的一个类继承自ImageView，用来实现圆形的图片效果和缩放效果的-->
         <!--        <com.example.dumb.CircleImageView-->
         <!--                android:id="@+id/home_item_head"-->

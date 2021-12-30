@@ -72,38 +72,6 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/guideline2"
             app:layout_constraintHorizontal_bias="0.498" android:layout_marginBottom="12dp"/>
-    <TextView
-            android:id="@+id/home_textmyself"
-            android:layout_width="58dp"
-            android:layout_height="21dp"
-            android:gravity="center"
-            android:text="我的"
-            android:textSize="12sp"
-            android:textColor="@color/textDefault" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="@+id/guideline4"
-            app:layout_constraintVertical_bias="1.0" android:layout_marginEnd="28dp"/>
-    <TextView
-            android:id="@+id/home_texthome"
-            android:layout_width="59dp"
-            android:layout_height="20dp"
-            android:gravity="center"
-            android:text="首页"
-            android:textSize="12sp"
-            android:textColor="@color/textDefault" app:layout_constraintEnd_toStartOf="@+id/home_textmessage"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/home_textmessage" app:layout_constraintHorizontal_bias="0.243"
-            app:layout_constraintVertical_bias="0.0"/>
-    <TextView
-            android:id="@+id/home_textmessage"
-            android:layout_width="59dp"
-            android:layout_height="20dp"
-            android:gravity="center"
-            android:text="消息"
-            android:textSize="12sp"
-            android:textColor="@color/textDefault" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/home_textmyself" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/home_textmyself" app:layout_constraintHorizontal_bias="0.654"
-            app:layout_constraintVertical_bias="1.0"/>
     <androidx.constraintlayout.widget.Barrier
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
