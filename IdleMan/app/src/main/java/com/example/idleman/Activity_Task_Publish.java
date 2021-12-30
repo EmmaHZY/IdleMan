@@ -96,8 +96,7 @@ public class Activity_Task_Publish extends AppCompatActivity {
 
     //退出逻辑,退回首页
     public void cancel(View view){
-        Intent intent = new Intent(Activity_Task_Publish.this, Home.class);
-        startActivity(intent);
+        Activity_Task_Publish.this.finish();
     }
 
     //发布逻辑

@@ -1,9 +1,13 @@
 package com.example.idleman;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.alibaba.fastjson.JSON;
@@ -43,9 +47,26 @@ public class Activity_Modify_Info extends AppCompatActivity {
         tel.setText(Data.getTelNumber());
     }
 
+    //弹窗处理
+    Handler handler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(@NonNull Message msg) {
+            new AlertDialog.Builder(
+                    Activity_Modify_Info.this)
+                    .setMessage(msg.getData().getString("key"))
+                    .setPositiveButton("确定", null)
+                    .show();
+            return false;
+        }
+    });
+
+    //退出逻辑,退回首页
+    public void exit(View view){
+        Activity_Modify_Info.this.finish();
+    }
+
     //点击确认修改后的响应
     public void changeMe(View view) {
-        Intent intent = new Intent(Activity_Modify_Info.this, Home.class);
         //修改传值
         String Name=name.getText().toString();
         String Label=label.getText().toString();
@@ -76,7 +97,16 @@ public class Activity_Modify_Info extends AppCompatActivity {
                 System.out.println(judge);
                 if(judge.equals("2041"))//修改成功
                 {
-                    startActivity(intent);
+                    //创建Message
+                    Message msg = Message.obtain();
+                    msg.what = 0;
+                    //创建Bundle
+                    Bundle bundle = new Bundle();
+                    bundle.putString("key","修改成功，可以退出");
+                    //为Message设置Bundle数据
+                    msg.setData(bundle);
+                    //发送消息
+                    handler.sendMessage(msg);
                 }
             }
         }).start();

@@ -79,8 +79,6 @@ public class Activity_Task extends AppCompatActivity {
 
     //退出逻辑
     public void exit(View view) {
-//        Intent intent = new Intent(Activity_Task.this, Home.class);
-//        startActivity(intent);
           Activity_Task.this.finish();
     }
 
