@@ -37,7 +37,7 @@ public class Activity_Task extends AppCompatActivity {
         initView();
     }
 
-    //查看逻辑
+    //查看逻辑，查看待接受任务详情
     private void initView(){
         publisher= findViewById(R.id.info_text_name);
         title = findViewById(R.id.info_text_title);
@@ -54,11 +54,11 @@ public class Activity_Task extends AppCompatActivity {
                 String data = temp.getJSONArray("data").getString(0);//数组第一个元素的字符串值
                 JSONObject show=JSON.parseObject(data);//转化为json对象
 
-                publisher.setText(show.getString("publisherID"));
-                title.setText(show.getString("taskTitle"));
-                content.setText(show.getString("taskContent"));
-                begin_time.setText(show.getString("publishTime"));
-                end_time.setText(show.getString("deadline"));
+                publisher.setText("~~"+show.getString("username")+"的任务~~");
+                title.setText("  标题:"+show.getString("taskTitle"));
+                content.setText("  详情："+show.getString("taskContent"));
+                begin_time.setText("发布时间："+show.getString("publishTime"));
+                end_time.setText("截止时间："+show.getString("deadline"));
             }
         }).start();
 

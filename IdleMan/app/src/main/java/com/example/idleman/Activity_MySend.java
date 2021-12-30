@@ -54,12 +54,12 @@ public class Activity_MySend extends AppCompatActivity {
                 JSONObject temp= JSON.parseObject(result);//结果转化为json对象
                 String data = temp.getJSONArray("data").getString(0);//数组第一个元素的字符串值
                 JSONObject show=JSON.parseObject(data);//转化为json对象
-                state.setText(show.getString("taskState"));
-                receiver.setText(show.getString("receiverID"));
-                title.setText(show.getString("taskTitle"));
-                content.setText(show.getString("taskContent"));
-                begin_time.setText(show.getString("publishTime"));
-                end_time.setText(show.getString("deadline"));
+                title.setText("  标题:"+show.getString("taskTitle"));
+                content.setText("  详情："+show.getString("taskContent"));
+                begin_time.setText("发布时间："+show.getString("publishTime"));
+                end_time.setText("截止时间："+show.getString("deadline"));
+                state.setText("  任务状态："+show.getString("taskState"));
+                receiver.setText("  接收者："+show.getString("receiverName"));
             }
         }).start();
 
