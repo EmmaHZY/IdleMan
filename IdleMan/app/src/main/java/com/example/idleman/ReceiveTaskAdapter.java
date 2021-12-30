@@ -58,6 +58,7 @@ class ReceiveTaskAdapter extends RecyclerView.Adapter<ReceiveTaskAdapter.MyViewH
         TaskItem item = list.get(position);
 //        Glide.with (context).load (item.getImgUrl ()).into (holder.ivBookImage);
         holder.title.setText(item.getText());
+        holder.username .setText(item.getUsername());
 //        holder.tvBookAuthor.setText (item.getBookAuthor ());
     }
 
