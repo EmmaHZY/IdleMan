@@ -54,10 +54,10 @@ public class Fragment_Ing extends Fragment {
     Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(@NonNull Message msg) {
-            HomeAdapter homeAdapter = new HomeAdapter(getActivity(), list);//创建适配器对象
+            IngAdapter IngAdapter = new IngAdapter(getActivity(), list);//创建适配器对象
             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));//设置为表格布局，列数为2（这个是最主要的，就是这个来展示陈列式布局）
             recyclerView.addItemDecoration(new space_item(space));//给recycleView添加item的间距
-            recyclerView.setAdapter(homeAdapter);//将适配器添加到recyclerView
+            recyclerView.setAdapter(IngAdapter);//将适配器添加到recyclerView
             return false;
         }
     });

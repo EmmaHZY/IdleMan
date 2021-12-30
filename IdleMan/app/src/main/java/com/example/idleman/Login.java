@@ -113,10 +113,6 @@ public class Login extends AppCompatActivity {
         }).start();
     }
 
-//    public void judgeLogin(View view) {
-//        Intent intent = new Intent(Login.this, Home.class);
-//        startActivity(intent);
-//    }
 
     //注册逻辑
     public void judgeSignup(View view){
