@@ -77,6 +77,21 @@
             android:layout_height="wrap_content"
             app:barrierDirection="top" tools:layout_editor_absoluteY="223dp" tools:layout_editor_absoluteX="57dp"
             android:id="@+id/barrier2"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray9"
+            android:id="@+id/home_welcometext"
+            app:layout_constraintStart_toEndOf="@+id/home_welcome" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/home_item" app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.155" app:layout_constraintVertical_bias="0.606"/>
+    <ImageView
+            android:layout_width="67dp"
+            android:layout_height="43dp" app:srcCompat="@drawable/home_welcome"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="40dp"
+            android:id="@+id/home_welcome"
+            app:layout_constraintTop_toTopOf="@+id/home_welcometext" android:layout_marginTop="136dp"
+            app:layout_constraintBottom_toBottomOf="@+id/home_welcometext" app:layout_constraintVertical_bias="0.956"/>
     <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
                                                 android:id="@+id/guideline"
                                                 android:orientation="horizontal"

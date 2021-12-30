@@ -38,6 +38,7 @@ import connectHelper.OkHttpConnectHelper;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class Fragment_Home extends Fragment {
 
@@ -85,8 +86,6 @@ public class Fragment_Home extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
 }
 
     @Override
@@ -94,6 +93,23 @@ public class Fragment_Home extends Fragment {
                              Bundle savedInstanceState) {
 
         View view=inflater.inflate(R.layout.fragment_home,container,false);
+        //欢迎语随机
+        TextView welcomeText=(TextView)view.findViewById(R.id.home_welcometext) ;
+        Random random=new Random();
+        String text = null;
+        int i=random.nextInt(7);
+        switch (i){
+            case 0:text="满堂花醉三千客，一剑霜寒十四州。";break;
+            case 1:text="此身合是诗人未？细雨骑驴入剑门。";break;
+            case 2:text="天下风云出我辈，一入江湖岁月催";break;
+            case 3:text="叶底藏花一度，梦里踏雪几回。";break;
+            case 4:text="事了拂衣去，深藏身与名。";break;
+            case 5:text="纵死侠骨香，不惭世上英。";break;
+            case 6:text="一箫一剑平生意，负尽狂名十五年。";break;
+            case 7:text="一点浩然气，千里快哉风。";break;
+            default:break;
+        }
+        welcomeText.setText(text);
 
         recyclerView= (RecyclerView) view.findViewById(R.id.home_item);//创建recyclerView对象，并初始化其xml文件
 
