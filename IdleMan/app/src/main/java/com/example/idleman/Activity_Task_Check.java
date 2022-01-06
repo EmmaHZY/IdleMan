@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import connectHelper.OkHttpConnectHelper;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -84,6 +85,20 @@ public class Activity_Task_Check extends AppCompatActivity {
                 JSONObject temp = JSON.parseObject(result);//结果转化为json对象
                 JSONArray array = temp.getJSONArray("data");
                 taskCount = array.size();
+                if(taskCount==0)
+                {
+                    //创建Message
+                    Message msg = Message.obtain();
+                    msg.what = 0;
+                    //创建Bundle
+                    Bundle bundle = new Bundle();
+                    bundle.putString("key","任务列表为空");
+                    //为Message设置Bundle数据
+                    msg.setData(bundle);
+                    //发送消息
+                    handler1.sendMessage(msg);
+                    return;
+                }
                 for (int i = 0; i < taskCount; i++) {
 
                     int id = 1;
@@ -148,6 +163,7 @@ public class Activity_Task_Check extends AppCompatActivity {
             public void run() {
                 String result = OkHttpConnectHelper.getTargetData(url);
                 JSONObject temp = JSON.parseObject(result);//结果转化为json对象
+                System.out.println(temp);
                 String judge = temp.getJSONObject("meta").getString("status");//获取状态码
                 if(!judge.equals("2011"))//没有东西
                 {

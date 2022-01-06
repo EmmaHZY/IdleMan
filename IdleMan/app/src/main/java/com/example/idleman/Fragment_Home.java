@@ -130,10 +130,23 @@ public class Fragment_Home extends Fragment {
             @Override
             public void run() {
                 String result = OkHttpConnectHelper.getTargetData(url);
-//                String userResult = OkHttpConnectHelper.getTargetData()
                 JSONObject temp= JSON.parseObject(result);//结果转化为json对象
                 JSONArray array=temp.getJSONArray("data");
                 taskCount=array.size();
+                if(taskCount==0)
+                {
+                    //创建Message
+                    Message msg = Message.obtain();
+                    msg.what = 0;
+                    //创建Bundle
+                    Bundle bundle = new Bundle();
+                    bundle.putString("key","任务列表为空");
+                    //为Message设置Bundle数据
+                    msg.setData(bundle);
+                    //发送消息
+                    handler1.sendMessage(msg);
+                    return;
+                }
                 for (int i = 0; i < taskCount; i++) {
 
                     int id = 1;
@@ -158,6 +171,19 @@ public class Fragment_Home extends Fragment {
             }
         }).start();
     }
+
+    //弹窗处理
+    Handler handler1 = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(@NonNull Message msg) {
+            new AlertDialog.Builder(
+                    getActivity())
+                    .setMessage(msg.getData().getString("key"))
+                    .setPositiveButton("确定", null)
+                    .show();
+            return false;
+        }
+    });
 
 
     //用户点击publish按钮之后的响应

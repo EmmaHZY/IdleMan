@@ -89,10 +89,10 @@ public class Activity_Task_Publish extends AppCompatActivity {
     });
 
     //任务类型选定
-    public void tag1(View view){tag="1";}
-    public void tag2(View view){tag="2";}
-    public void tag3(View view){tag="3";}
-    public void tag4(View view){tag="4";}
+    public void tag1(View view){tag="带饭";}
+    public void tag2(View view){tag="借书还书";}
+    public void tag3(View view){tag="取快递";}
+    public void tag4(View view){tag="其他";}
 
     //退出逻辑,退回首页
     public void cancel(View view){

@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -75,6 +76,19 @@ public class Fragment_Myself_Receive extends Fragment {
         return view;
     }
 
+    //弹窗处理
+    Handler handler1 = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(@NonNull Message msg) {
+            new AlertDialog.Builder(
+                    getActivity())
+                    .setMessage(msg.getData().getString("key"))
+                    .setPositiveButton("确定", null)
+                    .show();
+            return false;
+        }
+    });
+
     private void initData() {
         //this.list=TaskFactory.createItem();
         String url="http://1.117.239.54:8080/task?operation=getByReceiverID&index="+Data.getId()+"&key=";
@@ -85,6 +99,20 @@ public class Fragment_Myself_Receive extends Fragment {
                 JSONObject temp= JSON.parseObject(result);//结果转化为json对象
                 JSONArray array=temp.getJSONArray("data");
                 taskCount=array.size();
+                if(taskCount==0)
+                {
+                    //创建Message
+                    Message msg = Message.obtain();
+                    msg.what = 0;
+                    //创建Bundle
+                    Bundle bundle = new Bundle();
+                    bundle.putString("key","任务列表为空");
+                    //为Message设置Bundle数据
+                    msg.setData(bundle);
+                    //发送消息
+                    handler1.sendMessage(msg);
+                    return;
+                }
                 for (int i = 0; i < taskCount; i++) {
                     int id = 1;
                     Log.d("task id", "task is NO." + id);
